@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <section>
+        <div class="container">
+            <div class="entry-list">
+                {{#each blog}}
+                    <article>
+                        <h2>
+                            <a href="/detail/">{{title}}</a>
+                        </h2>
+                        <time>{{date}}</time>
+                    </article>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+{{/partial}}
+
+{{> base.hbs}}
