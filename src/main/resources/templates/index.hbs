@@ -5,9 +5,27 @@
                 {{#each blog}}
                     <article>
                         <h2>
-                            <a href="/detail/">{{title}}</a>
+                            <a href="/detail/">{{ title }}</a>
                         </h2>
-                        <time>{{date}}</time>
+                        <time>{{ date }}</time>
+                    </article>
+                    <article>
+                        <h2>
+                            <a href="/detail/">{{#block "title"}}Blog Post #3{{/block}}</a>
+                        </h2>
+                        <time>January 13, 2018 at 9:34</time>
+                    </article>
+                    <article>
+                        <h2>
+                            <a href="/detail/">{{#block "title"}}Blog Post #2{{/block}}</a>
+                        </h2>
+                        <time>January 12, 2018 at 14:29</time>
+                    </article>
+                    <article>
+                        <h2>
+                            <a href="/detail/">{{#block "title"}}Blog Post #1{{/block}}</a>
+                        </h2>
+                        <time>January 11, 2018 at 11:04</time>
                     </article>
                 {{/each}}
             </div>

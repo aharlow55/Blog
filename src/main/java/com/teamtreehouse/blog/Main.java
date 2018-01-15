@@ -2,9 +2,11 @@ package com.teamtreehouse.blog;
 
 import com.teamtreehouse.blog.dao.BlogDao;
 import com.teamtreehouse.blog.dao.SparkBlogDao;
+import com.teamtreehouse.blog.exception.NotFoundException;
 import com.teamtreehouse.blog.model.BlogEntry;
 import com.teamtreehouse.blog.model.Comment;
 import spark.ModelAndView;
+import spark.Request;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.time.LocalDateTime;
@@ -14,9 +16,10 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class Main {
+    private static final String FLASH_MESSAGE_KEY = "flash_message";
+
     public static void main(String[] args) {
         staticFileLocation("/public");
-
         BlogDao blogDao = new SparkBlogDao();
 
         before((req, res) -> {
@@ -114,6 +117,14 @@ public class Main {
             blogDao.removeEntry(blogEntry);
             res.redirect("/");
             return null;
+        });
+
+        exception(NotFoundException.class, (exc, req, res) -> {
+            res.status(404);
+            HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
+            String html = engine.render(
+                    new ModelAndView(null, "not-found.hbs"));
+            res.body(html);
         });
     }
 }

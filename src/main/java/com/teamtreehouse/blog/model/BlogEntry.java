@@ -5,9 +5,7 @@ import com.github.slugify.Slugify;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class BlogEntry {
     private String title;
@@ -15,9 +13,11 @@ public class BlogEntry {
     private LocalDateTime date;
     private String entry;
     private String slug;
+    private Set<String> blogs;
     private List<Comment> comments;
 
     public BlogEntry(String title, String entry, LocalDateTime date) {
+        blogs = new HashSet<>();
         this.title = title;
         //this.date = "1 January 2017";
         this.date = date;
@@ -72,6 +72,10 @@ public class BlogEntry {
 
     public List<Comment> getComments() {
         return new ArrayList<>(comments);
+    }
+
+    public List<String> getBlogs() {
+      return new ArrayList<>(blogs);
     }
 
     @Override
