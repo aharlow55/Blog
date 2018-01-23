@@ -72,7 +72,7 @@ public class Main {
 
         get("/detail/:slug", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            model.put("blog", blogDao.findEntryBySlug(req.params("slug")));
+            model.put("blogEntry", blogDao.findEntryBySlug(req.params("slug")));
             return new ModelAndView(model, "detail.hbs");
         }, new HandlebarsTemplateEngine());
 

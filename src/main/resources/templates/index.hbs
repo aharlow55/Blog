@@ -1,36 +1,48 @@
 {{#partial "content"}}
-    <section>
-        <div class="container">
-            <div class="entry-list">
-                {{#each blog}}
-                    <article>
-                        <h2>
-                            <a href="/detail/">{{ title }}</a>
-                        </h2>
-                        <time>{{ date }}</time>
-                    </article>
-                    <article>
-                        <h2>
-                            <a href="/detail/">{{#block "title"}}Blog Post #3{{/block}}</a>
-                        </h2>
-                        <time>January 13, 2018 at 9:34</time>
-                    </article>
-                    <article>
-                        <h2>
-                            <a href="/detail/">{{#block "title"}}Blog Post #2{{/block}}</a>
-                        </h2>
-                        <time>January 12, 2018 at 14:29</time>
-                    </article>
-                    <article>
-                        <h2>
-                            <a href="/detail/">{{#block "title"}}Blog Post #1{{/block}}</a>
-                        </h2>
-                        <time>January 11, 2018 at 11:04</time>
-                    </article>
-                {{/each}}
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<section>
+    <div class="container">
+        <div class="entry-list">
+            {{#each blog}}
+            <article>
+                <h2>
+                    <a href="/detail/">{{ slug }}</a>
+                </h2>
+                <time>{{ date }}</time>
+            </article>
+            {{/each}}
+            <article>
+                <h2><a href="detail_4.html">Semi-Charmed Life</a></h2>
+                <time datetime="1997-10-17 1:00">October 17, 1997 at 1:00</a></time>
+            </article>
+            <article>
+                <h2><a href="detail_3.html">Buddy Holly</a></h2>
+                <time datetime="1994-04-15 1:00">April 15, 1994 at 1:00</a></time>
+            </article>
+            <article>
+                <h2><a href="detail_2.html">Jump Around</a></h2>
+                <time datetime="1992-08-31 1:00">August 31, 1992 at 1:00</a></time>
+            </article>
+            <article>
+                <h2><a href="detail.html"></a>Smells Like Teen Spirit</h2>
+                <time datetime="1991-01-31 1:00">January 31, 1991 at 1:00</time>
+            </article>
         </div>
-    </section>
+    </div>
+</section>
+
+</body>
+</html>
+
 {{/partial}}
 
 {{> base.hbs}}
+
+
+
